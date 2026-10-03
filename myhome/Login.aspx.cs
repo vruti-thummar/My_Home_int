@@ -42,24 +42,33 @@ namespace myhome
             string email = txtEmail.Text;
             string password = txtPassword.Text;
 
-            if (btnLogin.Text == "Sign in")
-            {
-                getcon();
-                cmd = new SqlCommand("INSERT into home_tbl(Email,Password)values('" + txtEmail.Text + "','" + txtPassword.Text + "')", con);
-                cmd.ExecuteNonQuery();
-                clear();
-            }
-
             if (!string.IsNullOrEmpty(email) && !string.IsNullOrEmpty(password))
             {
-                lblShowEmail.Text = "Welcome, " + email;
+                getcon();
+
+                cmd = new SqlCommand(
+                    "select id from home_tbl where email='" + email +
+                    "' and password='" + password + "'", con);
+
+                int uid = Convert.ToInt32(cmd.ExecuteScalar());
+
+                if (uid > 0)
+                {
+                    Session["uid"] = uid;
+                    Session["email"] = email;
+
+                    Response.Redirect("index.aspx");
+                }
+                else
+                {
+                    lblShowEmail.Text = "Invalid email or password!";
+                }
             }
             else
             {
                 lblShowEmail.Text = "Please enter your email and password!";
             }
         }
-
         protected void Button1_Click(object sender, EventArgs e)
         {
 

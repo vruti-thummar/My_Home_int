@@ -7,9 +7,6 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Data.SqlClient;
-using System.Data;
-using System.Configuration;
 
 
 namespace myhome
@@ -19,22 +16,26 @@ namespace myhome
         SqlConnection con;
         SqlDataAdapter da;
         DataSet ds;
+        SqlCommand cmd;
 
         string s = ConfigurationManager.ConnectionStrings
             ["dbcon"].ConnectionString;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+            if (Session["uid"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
+
+            ViewState["uid"] = Session["uid"];
+
+            getcon();
 
             if (!IsPostBack)
             {
-                
-
                 filldatalist();
-
             }
-            getcon();
         }
         void getcon()
         {
@@ -43,17 +44,17 @@ namespace myhome
         }
 
 
-        
 
         void filldatalist()
         {
             getcon();
-            if (Request.QueryString["cid"] != null)
+
+            if (Request.QueryString["cat"] != null)
             {
-                int id = Convert.ToInt32(Request.QueryString["cid"]);
+                string cat = Request.QueryString["cat"];
 
                 da = new SqlDataAdapter(
-                    "select * from Product_tbl where Category_Id=" + id, con);
+                    "select * from Product_tbl where Category_Id=" + cat, con);
             }
             else
             {
@@ -64,11 +65,9 @@ namespace myhome
             ds = new DataSet();
             da.Fill(ds);
 
-            DataList1.DataSource = ds;
+            DataList1.DataSource = ds.Tables[0];
             DataList1.DataBind();
         }
-        
-
         protected void rptProducts_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
 
@@ -101,7 +100,7 @@ namespace myhome
 
         protected void DataList2_ItemCommand(object source, DataListCommandEventArgs e)
         {
-            
+
 
         }
 
@@ -114,19 +113,36 @@ namespace myhome
         {
             if (e.CommandName == "cmd_cid")
             {
-                int id = Convert.ToInt32(e.CommandArgument);
+                string cat = e.CommandArgument.ToString();
 
-                ViewState["cid"] = id;
+                Response.Redirect("catalog.aspx?cat=" + cat);
+            }
 
-                Response.Redirect("catalog.aspx?cid=" + ViewState["cid"]);
+            if (e.CommandName == "AddToCart")
+            {
+                int prid = Convert.ToInt32(e.CommandArgument);
+
+                getcon();
+
+                cmd = new SqlCommand(
+                    "insert into Cart_tbl(Cart_Prod_Id,Cart_User_Id,Quantity,Total,Added_Date) " +
+                    "select Product_Id," + Session["uid"] + ",1,Price,GETDATE() " +
+                    "from Product_tbl where Product_Id=" + prid, con);
+
+                cmd.ExecuteNonQuery();
+
+                Response.Redirect("cart.aspx");
             }
         }
 
         protected void LinkButton1_Click(object sender, EventArgs e)
         {
-Response.Redirect("viewdetails.aspx");
+            Response.Redirect("viewdetails.aspx");
+        }
+        protected void DataList1_SelectedIndexChanged2(object sender, EventArgs e)
+        {
 
         }
     }
 }
-    
+

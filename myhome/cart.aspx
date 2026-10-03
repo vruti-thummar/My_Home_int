@@ -59,6 +59,67 @@
   <h1 style="margin-bottom:1.5rem">Your shopping cart</h1>
 
   <div id="cart-content"></div>
+   <asp:GridView ID="GridView1" runat="server"
+    AutoGenerateColumns="False"
+    Width="100%"
+    AutoGenerateEditButton="True"
+    DataKeyNames="Cart_Id"
+    OnRowEditing="GridView1_RowEditing"
+    OnRowUpdating="GridView1_RowUpdating"
+    OnRowCancelingEdit="GridView1_RowCancelingEdit">
+
+    <Columns>
+
+        <asp:TemplateField HeaderText="Product Image">
+    <ItemTemplate>
+        <asp:Image ID="Image1" runat="server"
+            ImageUrl='<%# ResolveUrl("~/" + Eval("Product_Image")) %>'
+            Width="100px"
+            Height="100px"
+            Style="object-fit:cover;" />
+    </ItemTemplate>
+</asp:TemplateField>
+
+        <asp:BoundField DataField="Cart_Id"
+            HeaderText="Cart ID"
+            ReadOnly="True" />
+
+        <asp:BoundField DataField="Cart_Prod_Id"
+            HeaderText="Product ID"
+            ReadOnly="True" />
+
+        <asp:TemplateField HeaderText="Quantity">
+
+            <ItemTemplate>
+                <%# Eval("Quantity") %>
+            </ItemTemplate>
+
+            <EditItemTemplate>
+                <asp:DropDownList ID="ddlQuantity"
+                    runat="server"
+                    SelectedValue='<%# Eval("Quantity") %>'>
+
+                    <asp:ListItem Text="1" Value="1"></asp:ListItem>
+                    <asp:ListItem Text="2" Value="2"></asp:ListItem>
+                    <asp:ListItem Text="3" Value="3"></asp:ListItem>
+                    <asp:ListItem Text="4" Value="4"></asp:ListItem>
+                    <asp:ListItem Text="5" Value="5"></asp:ListItem>
+
+                </asp:DropDownList>
+            </EditItemTemplate>
+
+        </asp:TemplateField>
+
+        <asp:BoundField DataField="Total"
+            HeaderText="Total" />
+
+        <asp:BoundField DataField="Added_Date"
+            HeaderText="Added Date"
+            ReadOnly="True" />
+
+    </Columns>
+
+</asp:GridView>
 </main>
 
 

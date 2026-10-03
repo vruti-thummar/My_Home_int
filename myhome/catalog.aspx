@@ -200,7 +200,7 @@
     CellPadding="10"
     CellSpacing="15"
     Width="100%"
-    OnItemCommand="DataList1_ItemCommand">
+    OnItemCommand="DataList1_ItemCommand" OnSelectedIndexChanged="DataList1_SelectedIndexChanged2">
 
     <ItemStyle VerticalAlign="Top" Width="33.33%" />
 
@@ -284,9 +284,11 @@
 </asp:HyperLink>
 </p>
 
-<button type="button" class="btn btn-primary">
-    Add to Cart
-</button>
+<asp:Button ID="btnAddCart" runat="server"
+    Text="Add to Cart"
+    CssClass="btn btn-primary"
+    CommandName="AddToCart"
+    CommandArgument='<%# Eval("Product_Id") %>' />
 
             </div>
 
