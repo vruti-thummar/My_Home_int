@@ -65,35 +65,23 @@
     DataKeyNames="Cart_Id"
     OnRowEditing="GridView1_RowEditing"
     OnRowUpdating="GridView1_RowUpdating"
-    OnRowCancelingEdit="GridView1_RowCancelingEdit">
+    OnRowCancelingEdit="GridView1_RowCancelingEdit" 
+    OnRowCommand="GridView1_RowCommand" OnSelectedIndexChanged="GridView1_SelectedIndexChanged1">
 
 <Columns>
 
     <asp:TemplateField HeaderText="Product Image">
         <ItemTemplate>
-            <asp:Image ID="Image1" runat="server"
-                ImageUrl='<%# ResolveUrl("~/" + Eval("Product_Image")) %>'
-                Width="100px"
-                Height="100px"
-                Style="object-fit:cover;" />
-        </ItemTemplate>
+            <asp:Image ID="Image1" runat="server" ImageUrl='<%# ResolveUrl("~/" + Eval("Product_Image")) %>' Width="100px" Height="100px" Style="object-fit:cover;" /> </ItemTemplate>
     </asp:TemplateField>
 
-    <asp:BoundField DataField="Cart_Id"
-        HeaderText="Cart ID"
-        ReadOnly="True" />
+    <asp:BoundField DataField="Cart_Id" HeaderText="Cart ID" ReadOnly="True" />
 
-    <asp:BoundField DataField="Cart_Prod_Id"
-        HeaderText="Product ID"
-        ReadOnly="True" />
+    <asp:BoundField DataField="Cart_Prod_Id" HeaderText="Product ID" ReadOnly="True" />
 
-    <asp:BoundField DataField="Product_Name"
-        HeaderText="Product Name"
-        ReadOnly="True" />
+    <asp:BoundField DataField="Product_Name" HeaderText="Product Name" ReadOnly="True" />
 
-    <asp:BoundField DataField="Price"
-        HeaderText="Price"
-        ReadOnly="True" />
+    <asp:BoundField DataField="Price" HeaderText="Price" ReadOnly="True" />
 
     <asp:TemplateField HeaderText="Quantity">
 
@@ -102,10 +90,7 @@
         </ItemTemplate>
 
         <EditItemTemplate>
-            <asp:DropDownList ID="drpqnt"
-                runat="server"
-                SelectedValue='<%# Eval("Quantity") %>'>
-
+            <asp:DropDownList ID="drpqnt" runat="server" SelectedValue='<%# Eval("Quantity") %>'>
                 <asp:ListItem Text="1" Value="1"></asp:ListItem>
                 <asp:ListItem Text="2" Value="2"></asp:ListItem>
                 <asp:ListItem Text="3" Value="3"></asp:ListItem>
@@ -117,14 +102,21 @@
 
     </asp:TemplateField>
 
-    <asp:BoundField DataField="Added_Date"
-        HeaderText="Added Date"
-        ReadOnly="True" />
-
     <asp:CommandField HeaderText="Update_Quntity" ShowEditButton="True" />
+
+    <asp:TemplateField HeaderText="Delete ">
+        <ItemTemplate>
+            <asp:LinkButton ID="LinkButton1" runat="server" CommandName="cmd_rmv" CommandArgument='<%# Eval("Cart_Id") %>'>Remove</asp:LinkButton>
+        </ItemTemplate>
+    </asp:TemplateField>
 
 </Columns>
 </asp:GridView>
+    <br />
+<div style="text-align:right; margin-top:20px; font-size:22px; font-weight:bold;">
+    Total
+    <asp:Label ID="lblTotal" runat="server" Text="0.00"></asp:Label>
+</div>
 </main>
 
 

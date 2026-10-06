@@ -625,7 +625,7 @@
 
 
         <asp:DataList ID="DataList1" runat="server"
-            RepeatDirection="Horizontal"   Width="100%">
+            RepeatDirection="Horizontal"   Width="100%" OnSelectedIndexChanged="DataList1_SelectedIndexChanged">
 
             <ItemTemplate>
 
@@ -758,7 +758,7 @@
                         </a>
 
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:Button ID="Button1" runat="server"  class="back-btn1" Text="Add to Cart" />
+                        <asp:Button ID="Button1" runat="server"  class="back-btn1" Text="Add to Cart" CommandArgument='<%# Eval("Product_Id") %>' />
 
                     </div>
 

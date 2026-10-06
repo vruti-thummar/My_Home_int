@@ -58,6 +58,15 @@ namespace myhome
 
             GridView1.DataSource = ds;
             GridView1.DataBind();
+
+            decimal total = 0;
+            foreach(DataRow dr in ds.Tables[0].Rows)
+            {
+                decimal price = Convert.ToDecimal(dr["Total"]);
+                int Quntity = Convert.ToInt16(dr["Quantity"]);
+                total += price * Quntity;
+            }
+            lblTotal.Text = " Amount is ₹: " + total;
         }
         protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
         {
@@ -90,6 +99,23 @@ namespace myhome
         }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "cmd_rmv")
+                {
+                int cartId = Convert.ToInt16(e.CommandArgument);
+                getcon();
+                cmd = new SqlCommand("delete from Cart_tbl where Cart_Id=" + cartId +" AND Cart_User_Id=" + ViewState["uid"], con);
+                cmd.ExecuteNonQuery();
+                fillcartgrid();
+            }
+        }
+
+        protected void GridView1_SelectedIndexChanged1(object sender, EventArgs e)
         {
 
         }

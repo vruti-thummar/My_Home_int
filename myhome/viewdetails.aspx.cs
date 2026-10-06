@@ -45,12 +45,14 @@ namespace myhome
                 Request.QueryString["pid"], con);
 
             ds = new DataSet();
-
-            da.Fill(ds);
-
+            da. Fill(ds);
             DataList1.DataSource = ds;
-
             DataList1.DataBind();
+        }
+
+        protected void DataList1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
