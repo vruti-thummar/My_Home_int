@@ -70,10 +70,12 @@ namespace myhome
             int prid = Convert.ToInt16(GridView1.DataKeys[e.RowIndex].Value);
             GridViewRow row = (GridViewRow)GridView1.Rows[e.RowIndex];
 
-            DropDownList drpqnt = (GridView1.Rows[e.RowIndex].FindControl("DropDownList1") as DropDownList);
+            DropDownList drpqnt = (DropDownList)row.FindControl("drpqnt");
+            int qty = int.Parse(drpqnt.SelectedValue);
+
             getcon();
             cmd = new SqlCommand(
-                "update Cart_tbl set Quantity=" + drpqnt.SelectedValue +
+                "update Cart_tbl set Quantity=" + qty +
                 " where Cart_Prod_Id=" + prid +
                 " AND Cart_User_Id=" + ViewState["uid"], con);
             cmd.ExecuteNonQuery();
@@ -83,8 +85,12 @@ namespace myhome
 
         protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
-            //GridView1.EditIndex = -1;
-            //fillcartgrid();
+           
+        }
+
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

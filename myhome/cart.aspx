@@ -62,63 +62,68 @@
    <asp:GridView ID="GridView1" runat="server"
     AutoGenerateColumns="False"
     Width="100%"
-    AutoGenerateEditButton="True"
     DataKeyNames="Cart_Id"
     OnRowEditing="GridView1_RowEditing"
     OnRowUpdating="GridView1_RowUpdating"
     OnRowCancelingEdit="GridView1_RowCancelingEdit">
 
-    <Columns>
+<Columns>
 
-        <asp:TemplateField HeaderText="Product Image">
-    <ItemTemplate>
-        <asp:Image ID="Image1" runat="server"
-            ImageUrl='<%# ResolveUrl("~/" + Eval("Product_Image")) %>'
-            Width="100px"
-            Height="100px"
-            Style="object-fit:cover;" />
-    </ItemTemplate>
-</asp:TemplateField>
+    <asp:TemplateField HeaderText="Product Image">
+        <ItemTemplate>
+            <asp:Image ID="Image1" runat="server"
+                ImageUrl='<%# ResolveUrl("~/" + Eval("Product_Image")) %>'
+                Width="100px"
+                Height="100px"
+                Style="object-fit:cover;" />
+        </ItemTemplate>
+    </asp:TemplateField>
 
-        <asp:BoundField DataField="Cart_Id"
-            HeaderText="Cart ID"
-            ReadOnly="True" />
+    <asp:BoundField DataField="Cart_Id"
+        HeaderText="Cart ID"
+        ReadOnly="True" />
 
-        <asp:BoundField DataField="Cart_Prod_Id"
-            HeaderText="Product ID"
-            ReadOnly="True" />
+    <asp:BoundField DataField="Cart_Prod_Id"
+        HeaderText="Product ID"
+        ReadOnly="True" />
 
-        <asp:TemplateField HeaderText="Quantity">
+    <asp:BoundField DataField="Product_Name"
+        HeaderText="Product Name"
+        ReadOnly="True" />
 
-            <ItemTemplate>
-                <%# Eval("Quantity") %>
-            </ItemTemplate>
+    <asp:BoundField DataField="Price"
+        HeaderText="Price"
+        ReadOnly="True" />
 
-            <EditItemTemplate>
-                <asp:DropDownList ID="ddlQuantity"
-                    runat="server"
-                    SelectedValue='<%# Eval("Quantity") %>'>
+    <asp:TemplateField HeaderText="Quantity">
 
-                    <asp:ListItem Text="1" Value="1"></asp:ListItem>
-                    <asp:ListItem Text="2" Value="2"></asp:ListItem>
-                    <asp:ListItem Text="3" Value="3"></asp:ListItem>
-                    <asp:ListItem Text="4" Value="4"></asp:ListItem>
-                    <asp:ListItem Text="5" Value="5"></asp:ListItem>
+        <ItemTemplate>
+            <%# Eval("Quantity") %>
+        </ItemTemplate>
 
-                </asp:DropDownList>
-            </EditItemTemplate>
+        <EditItemTemplate>
+            <asp:DropDownList ID="drpqnt"
+                runat="server"
+                SelectedValue='<%# Eval("Quantity") %>'>
 
-        </asp:TemplateField>
+                <asp:ListItem Text="1" Value="1"></asp:ListItem>
+                <asp:ListItem Text="2" Value="2"></asp:ListItem>
+                <asp:ListItem Text="3" Value="3"></asp:ListItem>
+                <asp:ListItem Text="4" Value="4"></asp:ListItem>
+                <asp:ListItem Text="5" Value="5"></asp:ListItem>
 
-        <asp:BoundField DataField="Total"
-            HeaderText="Total" />
+            </asp:DropDownList>
+        </EditItemTemplate>
 
-        <asp:BoundField DataField="Added_Date"
-            HeaderText="Added Date"
-            ReadOnly="True" />
+    </asp:TemplateField>
 
-    </Columns>
+    <asp:BoundField DataField="Added_Date"
+        HeaderText="Added Date"
+        ReadOnly="True" />
 
+    <asp:CommandField HeaderText="Update_Quntity" ShowEditButton="True" />
+
+</Columns>
 </asp:GridView>
 </main>
 
