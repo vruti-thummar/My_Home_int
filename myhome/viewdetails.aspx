@@ -624,9 +624,11 @@
         </div>
 
 
-        <asp:DataList ID="DataList1" runat="server"
-            RepeatDirection="Horizontal"   Width="100%" OnSelectedIndexChanged="DataList1_SelectedIndexChanged">
-
+<asp:DataList ID="DataList1" runat="server"
+    RepeatDirection="Horizontal"
+    Width="100%"
+    OnSelectedIndexChanged="DataList1_SelectedIndexChanged"
+    OnItemCommand="DataList1_ItemCommand">
             <ItemTemplate>
 
                 <div class="details-box">
@@ -758,8 +760,11 @@
                         </a>
 
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:Button ID="Button1" runat="server"  class="back-btn1" Text="Add to Cart" CommandArgument='<%# Eval("Product_Id") %>' />
-
+<asp:Button ID="Button1" runat="server"
+    CssClass="back-btn1"
+    Text="Add to Cart"
+    CommandName="AddToCart"
+    CommandArgument='<%# Eval("Product_Id") %>' />
                     </div>
 
                 </div>

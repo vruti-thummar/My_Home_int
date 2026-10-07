@@ -7,9 +7,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Data.SqlClient;
-using System.Data;
-using System.Configuration;
+
+
 namespace myhome
 {
     public partial class viewdetails : System.Web.UI.Page
@@ -30,7 +29,7 @@ namespace myhome
                 fillproduct();
 
             }
-            
+
         }
         void getcon()
         {
@@ -45,7 +44,7 @@ namespace myhome
                 Request.QueryString["pid"], con);
 
             ds = new DataSet();
-            da. Fill(ds);
+            da.Fill(ds);
             DataList1.DataSource = ds;
             DataList1.DataBind();
         }
@@ -53,6 +52,29 @@ namespace myhome
         protected void DataList1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        protected void DataList1_ItemCommand(object source, DataListCommandEventArgs e)
+        {
+            {
+                if (e.CommandName == "AddToCart")
+                {
+                    int prid = Convert.ToInt32(e.CommandArgument);
+
+                    getcon();
+
+                    cmd = new SqlCommand(
+                        "insert into Cart_tbl(Cart_Prod_Id,Cart_User_Id,Quantity,Total,Added_Date) " +
+                        "select Product_Id," + Session["uid"] + ",1,Price,GETDATE() " +
+                        "from Product_tbl where Product_Id=" + prid, con);
+
+                    cmd.ExecuteNonQuery();
+
+                    con.Close();
+
+                    Response.Redirect("cart.aspx");
+                }
+            }
         }
     }
 }

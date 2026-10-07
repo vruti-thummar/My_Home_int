@@ -55,10 +55,10 @@
 
 
 <main class="container section">
-  <span class="eyebrow">Step 1 of 3</span>
-  <h1 style="margin-bottom:1.5rem">Your shopping cart</h1>
+<%--  <span class="eyebrow">Step 1 of 3</span>--%>
+  <center><h1 style="margin-bottom:1.5rem">Your shopping cart</h1></center>
 
-  <div id="cart-content"></div>
+<%--  <div id="cart-content"></div>--%>
    <asp:GridView ID="GridView1" runat="server"
     AutoGenerateColumns="False"
     Width="100%"
@@ -96,6 +96,7 @@
                 <asp:ListItem Text="3" Value="3"></asp:ListItem>
                 <asp:ListItem Text="4" Value="4"></asp:ListItem>
                 <asp:ListItem Text="5" Value="5"></asp:ListItem>
+                <asp:ListItem Text="6" Value="6"></asp:ListItem>
 
             </asp:DropDownList>
         </EditItemTemplate>
