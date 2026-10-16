@@ -63,7 +63,115 @@
     <span class="step">Confirmation</span>
   </div>
 
-  <div id="checkout-content"></div>
+    <table border="1" cellpadding="10" cellspacing="0" width="100%">
+    <tr>
+        <td colspan="4"><h3>Order Details</h3></td>
+    </tr>
+    <tr>
+        <td>Order No:</td>
+        <td>
+            <asp:Label ID="lblOrderNo" runat="server"></asp:Label>
+        </td>
+        <td>Order Date:</td>
+        <td>
+            <asp:Label ID="lblOrderDate" runat="server"></asp:Label>
+        </td>
+    </tr>
+    <tr>
+        <td>Customer Name:</td>
+        <td colspan="3">
+            <asp:Label ID="lblCustomerName" runat="server"></asp:Label>
+        </td>
+    </tr>
+    <tr>
+        <td>Customer Email:</td>
+        <td colspan="3">
+            <asp:Label ID="lblCustomerEmail" runat="server"></asp:Label>
+        </td>
+    </tr>
+    <tr>
+        <td>Customer Mobile:</td>
+        <td colspan="3">
+            <asp:Label ID="lblCustomerMobile" runat="server"></asp:Label>
+        </td>
+    </tr>
+    <tr>
+        <td>Customer Address:</td>
+        <td colspan="3">
+            <asp:Label ID="lblCustomerAddress" runat="server"></asp:Label>
+        </td>
+    </tr>
+</table>
+
+<asp:GridView ID="GridView1" runat="server"
+    AutoGenerateColumns="False"
+    Width="100%"
+    EmptyDataText="No products found">
+
+    <Columns>
+         <asp:ImageField
+            DataImageUrlField="Product_Image"
+            HeaderText="Product Image">
+            <ControlStyle Width="70px" Height="70px" />
+        </asp:ImageField>
+        <asp:BoundField DataField="Product_Name"
+            HeaderText="Product Name" />
+
+        <asp:BoundField DataField="Price"
+            HeaderText="Price"
+            DataFormatString="{0:C2}" />
+
+        <asp:BoundField DataField="Quantity"
+            HeaderText="Quantity" />
+
+        <asp:BoundField DataField="Line_Total"
+            HeaderText="Total"
+            DataFormatString="{0:C2}" />
+    </Columns>
+</asp:GridView>
+    
+<table border="1" cellpadding="10" cellspacing="0"
+    width="100%" style="margin-top:20px">
+
+    <tr>
+        <td>Sub Total:</td>
+        <td>
+            <asp:Label ID="lblSubTotal" runat="server"></asp:Label>
+        </td>
+    </tr>
+
+    <tr>
+        <td>Delivery Charges:</td>
+        <td>
+            <asp:Label ID="lblDelivery" runat="server"
+                Text="₹0.00"></asp:Label>
+        </td>
+    </tr>
+
+    <tr>
+        <td><b>Total Amount:</b></td>
+        <td>
+            <asp:Label ID="lblTotalAmount" runat="server"
+                Font-Bold="true"></asp:Label>
+        </td>
+    </tr>
+
+    <tr>
+        <td>Payment Method:</td>
+        <td>
+            <asp:Label ID="lblPaymentMethod" runat="server"></asp:Label>
+        </td>
+    </tr>
+
+    <tr>
+        <td>Payment Status:</td>
+        <td>
+            <asp:Label ID="lblPaymentStatus" runat="server"></asp:Label>
+        </td>
+    </tr>
+</table>
+
+
 </main>
 
 <footer class="site-footer">

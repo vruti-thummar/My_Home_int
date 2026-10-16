@@ -209,11 +209,10 @@
         <div class="category-menu">
 
             <asp:LinkButton ID="LinkButton2" runat="server"
-                Text="Sofa"
-                CommandArgument="1"
+                 Text= "Sofa"'<%# Eval("Category") %>'
+                CommandArgument='<%# Eval("Category") %>'
                 CommandName="cmd_cid"
-                CssClass="category-link">
-            </asp:LinkButton>
+                CssClass="category-link"></asp:LinkButton>
 
             <asp:LinkButton ID="LinkButton3" runat="server"
                 Text="Bedroom"

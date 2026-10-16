@@ -54,7 +54,7 @@ namespace myhome
                 string cat = Request.QueryString["cat"];
 
                 da = new SqlDataAdapter(
-                    "select * from Product_tbl where Category_Id=" + cat, con);
+                    "select * from Product_tbl where Category=" + cat, con);
             }
             else
             {

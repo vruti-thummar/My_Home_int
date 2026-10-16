@@ -117,6 +117,9 @@
 <div style="text-align:right; margin-top:20px; font-size:22px; font-weight:bold;">
     Total
     <asp:Label ID="lblTotal" runat="server" Text="0.00"></asp:Label>
+    <br />
+    <asp:Button ID="Button1" runat="server" Text="Continue Shoping" BackColor="#999999" OnClick="Button1_Click" />
+    <asp:Button ID="Button2" runat="server" Text="Process Checkout" BackColor="#009933" OnClick="Button2_Click" />
 </div>
 </main>
 
