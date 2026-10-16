@@ -24,58 +24,40 @@ namespace myhome
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// lblOrderNo control.
+        /// txtCustomerName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblOrderNo;
+        protected global::System.Web.UI.WebControls.TextBox txtCustomerName;
 
         /// <summary>
-        /// lblOrderDate control.
+        /// txtCustomerEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblOrderDate;
+        protected global::System.Web.UI.WebControls.TextBox txtCustomerEmail;
 
         /// <summary>
-        /// lblCustomerName control.
+        /// txtCustomerMobile control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCustomerName;
+        protected global::System.Web.UI.WebControls.TextBox txtCustomerMobile;
 
         /// <summary>
-        /// lblCustomerEmail control.
+        /// txtCustomerAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCustomerEmail;
-
-        /// <summary>
-        /// lblCustomerMobile control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCustomerMobile;
-
-        /// <summary>
-        /// lblCustomerAddress control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCustomerAddress;
+        protected global::System.Web.UI.WebControls.TextBox txtCustomerAddress;
 
         /// <summary>
         /// GridView1 control.
@@ -114,13 +96,13 @@ namespace myhome
         protected global::System.Web.UI.WebControls.Label lblTotalAmount;
 
         /// <summary>
-        /// lblPaymentMethod control.
+        /// DropDownList1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPaymentMethod;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
 
         /// <summary>
         /// lblPaymentStatus control.
@@ -130,5 +112,14 @@ namespace myhome
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblPaymentStatus;
+
+        /// <summary>
+        /// Button1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button1;
     }
 }

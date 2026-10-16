@@ -1,17 +1,236 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="checkout.aspx.cs" Inherits="myhome.checkout" %>
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head runat="server">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Checkout — MyHome Interiors</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Work+Sans:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="css/style.css">
+
+<style type="text/css">
+
+/* Checkout Main Layout */
+
+.checkout-content {
+    padding-top: 30px;
+    padding-bottom: 60px;
+}
+
+.checkout-title {
+    margin-bottom: 20px;
+    color: #3f352c;
+    font-family: 'Fraunces', serif;
+}
+
+.step-track {
+    margin-bottom: 30px;
+}
+
+/* Customer Details Table */
+
+.checkout-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    background: #fffdf9;
+    border: 1px solid #e5ded3;
+    color: #3f352c;
+    font-family: 'Work Sans', sans-serif;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.checkout-table td {
+    padding: 15px;
+    border: 1px solid #e5ded3;
+    vertical-align: middle;
+}
+
+.checkout-table .table-heading {
+    background: #6b513b;
+    color: #ffffff;
+    font-family: 'Fraunces', serif;
+    font-size: 21px;
+    font-weight: 600;
+}
+
+.checkout-table input[type="text"],
+.checkout-table input[type="email"],
+.checkout-table input[type="tel"],
+.checkout-table textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 11px 12px;
+    border: 1px solid #d8cbbb;
+    border-radius: 6px;
+    background: #ffffff;
+    color: #3f352c;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 14px;
+    outline: none;
+}
+
+.checkout-table input:focus,
+.checkout-table textarea:focus {
+    border-color: #8a6b4d;
+    box-shadow: 0 0 0 3px rgba(138, 107, 77, 0.12);
+}
+
+/* Product GridView */
+
+.checkout-grid {
+    width: 100%;
+    margin: 25px 0;
+    border-collapse: collapse;
+    background: #fffdf9;
+    color: #3f352c;
+    font-family: 'Work Sans', sans-serif;
+}
+
+.checkout-grid th {
+    padding: 15px 12px;
+    background: #6b513b;
+    color: #ffffff;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 600;
+    border: 1px solid #6b513b;
+}
+
+.checkout-grid td {
+    padding: 13px 12px;
+    border: 1px solid #e5ded3;
+    vertical-align: middle;
+}
+
+.checkout-grid tr:nth-child(even) {
+    background: #f7f2e9;
+}
+
+.checkout-grid tr:hover {
+    background: #efe7da;
+}
+
+.checkout-grid img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    border-radius: 6px;
+}
+
+/* Summary and Payment Table */
+
+.checkout-summary {
+    width: 55%;
+    margin: 25px 0 25px auto;
+    border-collapse: collapse;
+    background: #fffdf9;
+    border: 1px solid #e5ded3;
+    color: #3f352c;
+    font-family: 'Work Sans', sans-serif;
+}
+
+.checkout-summary td {
+    padding: 14px 16px;
+    border: 1px solid #e5ded3;
+    vertical-align: middle;
+}
+
+.checkout-summary td:first-child {
+    font-weight: 500;
+}
+
+.checkout-summary tr:last-child {
+    background: #f1e9dc;
+}
+
+.checkout-summary select {
+    width: 100%;
+    max-width: 260px;
+    padding: 10px;
+    border: 1px solid #d8cbbb;
+    border-radius: 6px;
+    background: #ffffff;
+    color: #3f352c;
+    font-family: 'Work Sans', sans-serif;
+}
+
+.payment-status {
+    color: #6b513b;
+    font-weight: 600;
+}
+
+/* Confirmation Button */
+
+.checkout-button {
+    display: block;
+    margin: 25px 0 10px auto;
+    padding: 13px 28px;
+    border: none;
+    border-radius: 6px;
+    background: #6b513b;
+    color: #ffffff;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.checkout-button:hover {
+    background: #4d3929;
+}
+
+/* Mobile Responsive */
+
+@media screen and (max-width: 768px) {
+
+    .checkout-table,
+    .checkout-table tbody,
+    .checkout-table tr,
+    .checkout-table td {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .checkout-table td {
+        border-bottom: none;
+    }
+
+    .checkout-table tr:last-child td:last-child {
+        border-bottom: 1px solid #e5ded3;
+    }
+
+    .checkout-grid {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .checkout-summary {
+        width: 100%;
+    }
+
+    .checkout-button {
+        width: 100%;
+    }
+}
+
+</style>
 </head>
+
 <body>
-    <form id="form1" runat="server">
+<form id="form1" runat="server">
+
+<!-- SVG ICONS -->
 
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
   <symbol id="icon-chair" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8v24M48 8v40M16 32h32M16 40v16M16 40l-4 8M48 40h4l-2 8"/></symbol>
@@ -33,9 +252,15 @@
   <symbol id="icon-hand" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 30V14a4 4 0 0 1 8 0v14M28 28V10a4 4 0 0 1 8 0v18M36 28V14a4 4 0 0 1 8 0v20"/><path d="M44 30v-8a4 4 0 0 1 8 0v20c0 10-8 18-18 18h-4c-8 0-12-4-16-10l-8-14a4 4 0 0 1 7-4l5 7"/></symbol>
 </svg>
 
+<!-- HEADER: KEEPING YOUR ORIGINAL HEADER -->
+
 <header class="site-header">
   <div class="container header-row">
-    <a href="index.aspx" class="logo"><svg><use href="#icon-swatch"/></svg> MyHome Interiors</a>
+    <a href="index.aspx" class="logo">
+      <svg><use href="#icon-swatch"/></svg>
+      MyHome Interiors
+    </a>
+
     <nav class="main-nav">
       <a href="index.aspx">Home</a>
       <a href="catalog.aspx">Catalog</a>
@@ -43,148 +268,231 @@
       <a href="login.aspx">Login</a>
       <a href="profile.aspx">Profile</a>
     </nav>
+
     <div class="header-actions">
-      <button type="button" class="icon-btn" aria-label="Search"><svg><use href="#icon-search"/></svg></button>
-      <a class="icon-btn" href="cart.aspx" aria-label="Cart"><svg><use href="#icon-cart"/></svg><span class="cart-count">0</span></a>
-      <a class="icon-btn" href="login.aspx" aria-label="Account"><svg><use href="#icon-user"/></svg></a>
-      <button type="button" class="nav-toggle icon-btn" aria-label="Menu"><svg><use href="#icon-menu"/></svg></button>
+      <button type="button" class="icon-btn" aria-label="Search">
+        <svg><use href="#icon-search"/></svg>
+      </button>
+
+      <a class="icon-btn" href="cart.aspx" aria-label="Cart">
+        <svg><use href="#icon-cart"/></svg>
+        <span class="cart-count">0</span>
+      </a>
+
+      <a class="icon-btn" href="login.aspx" aria-label="Account">
+        <svg><use href="#icon-user"/></svg>
+      </a>
+
+      <button type="button" class="nav-toggle icon-btn" aria-label="Menu">
+        <svg><use href="#icon-menu"/></svg>
+      </button>
     </div>
   </div>
 </header>
 
-<main class="container section">
-  <span class="eyebrow">Step 2 of 3</span>
-  <h1 style="margin-bottom:1rem">Checkout</h1>
-  <div class="step-track">
-    <span class="step">Cart</span>
-    <span>—</span>
-    <span class="step active">Payment &amp; Delivery</span>
-    <span>—</span>
-    <span class="step">Confirmation</span>
-  </div>
+<!-- CHECKOUT CONTENT -->
 
-    <table border="1" cellpadding="10" cellspacing="0" width="100%">
-    <tr>
-        <td colspan="4"><h3>Order Details</h3></td>
-    </tr>
-    <tr>
-        <td>Order No:</td>
-        <td>
-            <asp:Label ID="lblOrderNo" runat="server"></asp:Label>
-        </td>
-        <td>Order Date:</td>
-        <td>
-            <asp:Label ID="lblOrderDate" runat="server"></asp:Label>
-        </td>
-    </tr>
-    <tr>
-        <td>Customer Name:</td>
-        <td colspan="3">
-            <asp:Label ID="lblCustomerName" runat="server"></asp:Label>
-        </td>
-    </tr>
-    <tr>
-        <td>Customer Email:</td>
-        <td colspan="3">
-            <asp:Label ID="lblCustomerEmail" runat="server"></asp:Label>
-        </td>
-    </tr>
-    <tr>
-        <td>Customer Mobile:</td>
-        <td colspan="3">
-            <asp:Label ID="lblCustomerMobile" runat="server"></asp:Label>
-        </td>
-    </tr>
-    <tr>
-        <td>Customer Address:</td>
-        <td colspan="3">
-            <asp:Label ID="lblCustomerAddress" runat="server"></asp:Label>
-        </td>
-    </tr>
-</table>
+<main class="container section checkout-content">
 
-<asp:GridView ID="GridView1" runat="server"
-    AutoGenerateColumns="False"
-    Width="100%"
-    EmptyDataText="No products found">
+    <span class="eyebrow">Step 2 of 3</span>
 
-    <Columns>
-         <asp:ImageField
-            DataImageUrlField="Product_Image"
-            HeaderText="Product Image">
-            <ControlStyle Width="70px" Height="70px" />
-        </asp:ImageField>
-        <asp:BoundField DataField="Product_Name"
-            HeaderText="Product Name" />
+    <h1 class="checkout-title">Checkout</h1>
 
-        <asp:BoundField DataField="Price"
-            HeaderText="Price"
-            DataFormatString="{0:C2}" />
+    <div class="step-track">
+        <span class="step">Cart</span>
+        <span>—</span>
+        <span class="step active">Payment &amp; Delivery</span>
+        <span>—</span>
+        <span class="step">Confirmation</span>
+    </div>
 
-        <asp:BoundField DataField="Quantity"
-            HeaderText="Quantity" />
+    <!-- CUSTOMER DETAILS -->
 
-        <asp:BoundField DataField="Line_Total"
-            HeaderText="Total"
-            DataFormatString="{0:C2}" />
-    </Columns>
-</asp:GridView>
-    
-<table border="1" cellpadding="10" cellspacing="0"
-    width="100%" style="margin-top:20px">
+    <table class="checkout-table">
+        <tr>
+            <td colspan="4" class="table-heading">
+                Customer Details
+            </td>
+        </tr>
 
-    <tr>
-        <td>Sub Total:</td>
-        <td>
-            <asp:Label ID="lblSubTotal" runat="server"></asp:Label>
-        </td>
-    </tr>
+        <tr>
+            <td>Customer Name:</td>
+            <td>
+                <asp:TextBox ID="txtCustomerName" runat="server"
+                    placeholder="Enter Customer Name">
+                </asp:TextBox>
+            </td>
 
-    <tr>
-        <td>Delivery Charges:</td>
-        <td>
-            <asp:Label ID="lblDelivery" runat="server"
-                Text="₹0.00"></asp:Label>
-        </td>
-    </tr>
+            <td>Email:</td>
+            <td>
+                <asp:TextBox ID="txtCustomerEmail" runat="server"
+                    TextMode="Email"
+                    placeholder="Enter Email">
+                </asp:TextBox>
+            </td>
+        </tr>
 
-    <tr>
-        <td><b>Total Amount:</b></td>
-        <td>
-            <asp:Label ID="lblTotalAmount" runat="server"
-                Font-Bold="true"></asp:Label>
-        </td>
-    </tr>
+        <tr>
+            <td>Mobile:</td>
+            <td>
+                <asp:TextBox ID="txtCustomerMobile" runat="server"
+                    TextMode="Phone"
+                    placeholder="Enter Mobile Number">
+                </asp:TextBox>
+            </td>
 
-    <tr>
-        <td>Payment Method:</td>
-        <td>
-            <asp:Label ID="lblPaymentMethod" runat="server"></asp:Label>
-        </td>
-    </tr>
+            <td>Delivery Address:</td>
+            <td>
+                <asp:TextBox ID="txtCustomerAddress" runat="server"
+                    TextMode="MultiLine"
+                    Rows="3"
+                    placeholder="Enter Delivery Address">
+                </asp:TextBox>
+            </td>
+        </tr>
+    </table>
 
-    <tr>
-        <td>Payment Status:</td>
-        <td>
-            <asp:Label ID="lblPaymentStatus" runat="server"></asp:Label>
-        </td>
-    </tr>
-</table>
+    <!-- PRODUCT GRIDVIEW -->
 
+    <asp:GridView ID="GridView1" runat="server"
+        CssClass="checkout-grid"
+        AutoGenerateColumns="False"
+        Width="100%"
+        EmptyDataText="No products found"
+        GridLines="None">
+
+        <Columns>
+
+            <asp:ImageField
+                DataImageUrlField="Product_Image"
+                HeaderText="Product Image">
+                <ControlStyle Width="70px" Height="70px" />
+            </asp:ImageField>
+
+            <asp:BoundField
+                DataField="Product_Name"
+                HeaderText="Product Name" />
+
+            <asp:BoundField
+                DataField="Price"
+                HeaderText="Price"
+                DataFormatString="₹{0:N2}" />
+
+            <asp:BoundField
+                DataField="Quantity"
+                HeaderText="Quantity" />
+
+            <asp:BoundField
+                DataField="Line_Total"
+                HeaderText="Total"
+                DataFormatString="₹{0:N2}" />
+
+        </Columns>
+    </asp:GridView>
+
+    <!-- TOTAL AND PAYMENT DETAILS -->
+
+    <table class="checkout-summary">
+
+        <tr>
+            <td>Sub Total:</td>
+            <td>
+                <asp:Label ID="lblSubTotal" runat="server"></asp:Label>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Delivery Charges:</td>
+            <td>
+                <asp:Label ID="lblDelivery" runat="server"
+                    Text="₹0.00"></asp:Label>
+            </td>
+        </tr>
+
+        <tr>
+            <td><b>Total Amount:</b></td>
+            <td>
+                <asp:Label ID="lblTotalAmount" runat="server"
+                    Font-Bold="true"></asp:Label>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Payment Method:</td>
+            <td>
+                <asp:DropDownList ID="DropDownList1" runat="server">
+                    <asp:ListItem Value="">--- Select Method ---</asp:ListItem>
+                    <asp:ListItem>Cash On Delivery</asp:ListItem>
+                    <asp:ListItem>Online Payment</asp:ListItem>
+                </asp:DropDownList>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Payment Status:</td>
+            <td>
+                <asp:Label ID="lblPaymentStatus" runat="server"
+                    CssClass="payment-status"></asp:Label>
+            </td>
+        </tr>
+
+    </table>
+
+    <asp:Button ID="Button1" runat="server"
+        Text="Confirmation Order"
+        CssClass="checkout-button"
+        OnClick="Button1_Click" />
 
 </main>
+
+<!-- FOOTER: KEEPING YOUR ORIGINAL FOOTER -->
 
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
+
       <div>
-        <div class="logo" style="margin-bottom:0.75rem"><svg style="width:24px;height:24px"><use href="#icon-swatch"/></svg> MyHome Interiors</div>
-        <p>Furniture designed for how people actually live, made from materials that get better with age.</p>
+        <div class="logo" style="margin-bottom:0.75rem">
+          <svg style="width:24px;height:24px">
+            <use href="#icon-swatch"/>
+          </svg>
+          MyHome Interiors
+        </div>
+        <p>
+          Furniture designed for how people actually live,
+          made from materials that get better with age.
+        </p>
       </div>
-      <div><h4>Shop</h4><ul><li><a href="catalog.aspx">All furniture</a></li><li><a href="catalog.aspx?cat=sofas">Sofas</a></li><li><a href="catalog.aspx?cat=tables">Tables</a></li></ul></div>
-      <div><h4>Account</h4><ul><li><a href="login.aspx">Sign in</a></li><li><a href="profile.aspx">My orders</a></li><li><a href="cart.aspx">Cart</a></li></ul></div>
-      <div><h4>Company</h4><ul><li><a href="about.aspx">About us</a></li><li><a href="#">Contact</a></li><li><a href="#">Careers</a></li></ul></div>
+
+      <div>
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="catalog.aspx">All furniture</a></li>
+          <li><a href="catalog.aspx?cat=sofas">Sofas</a></li>
+          <li><a href="catalog.aspx?cat=tables">Tables</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Account</h4>
+        <ul>
+          <li><a href="login.aspx">Sign in</a></li>
+          <li><a href="profile.aspx">My orders</a></li>
+          <li><a href="cart.aspx">Cart</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.aspx">About us</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Careers</a></li>
+        </ul>
+      </div>
+
     </div>
+
     <div class="footer-bottom">
       <span>© 2026 MyHome Interiors. All rights reserved.</span>
       <span>Rajkot, Gujarat · IN</span>
@@ -196,6 +504,7 @@
 <script src="js/products.js"></script>
 <script src="js/checkout.js"></script>
 
-    </form>
+</form>
 </body>
 </html>
+

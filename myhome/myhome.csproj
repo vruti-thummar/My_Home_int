@@ -76,6 +76,7 @@
     <Content Include="cart.aspx" />
     <Content Include="catalog.aspx" />
     <Content Include="checkout.aspx" />
+    <Content Include="confirmation.aspx" />
     <Content Include="css\style.css" />
     <Content Include="index.aspx" />
     <Content Include="js\cart-page.js" />
@@ -86,6 +87,7 @@
     <Content Include="js\profile.js" />
     <Content Include="js\script.js" />
     <Content Include="Login.aspx" />
+    <Content Include="order.aspx" />
     <Content Include="profile.aspx" />
     <Content Include="register.aspx" />
     <Content Include="viewdetails.aspx" />
@@ -128,6 +130,13 @@
     <Compile Include="checkout.aspx.designer.cs">
       <DependentUpon>checkout.aspx</DependentUpon>
     </Compile>
+    <Compile Include="confirmation.aspx.cs">
+      <DependentUpon>confirmation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="confirmation.aspx.designer.cs">
+      <DependentUpon>confirmation.aspx</DependentUpon>
+    </Compile>
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -148,6 +157,13 @@
     </Compile>
     <Compile Include="myhome.Master.designer.cs">
       <DependentUpon>myhome.Master</DependentUpon>
+    </Compile>
+    <Compile Include="order.aspx.cs">
+      <DependentUpon>order.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="order.aspx.designer.cs">
+      <DependentUpon>order.aspx</DependentUpon>
     </Compile>
     <Compile Include="profile.aspx.cs">
       <DependentUpon>profile.aspx</DependentUpon>
