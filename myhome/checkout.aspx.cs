@@ -50,8 +50,8 @@ namespace myhome
                  c.total AS Line_Total
           FROM Product_tbl p
           INNER JOIN Cart_tbl c
-          ON p.Product_Id = c.prod_id
-          WHERE c.userid = @uid", con);
+          ON p.Product_Id = c.Cart_prod_Id
+          WHERE c.Cart_User_Id = @uid", con);
 
             cmd.Parameters.AddWithValue("@uid", Session["uid"]);
 
@@ -73,13 +73,20 @@ namespace myhome
                 }
             }
 
-            lblSubTotal.Text = "₹" + subtotal.ToString("N2");
-            lblDelivery.Text = "₹0.00";
-            lblTotalAmount.Text = "₹" + subtotal.ToString("N2");
+            lblSubTotal.Text = "₹" + subtotal.ToString("0.00");
+            decimal delivery = 200;
+            lblDelivery.Text = "₹" + delivery.ToString("0.00");
+            decimal total = subtotal + delivery;
+            lblTotalAmount.Text = "₹" + total.ToString("0.00");
         }
         protected void Button1_Click(object sender, EventArgs e)
         {
             Response.Redirect("confirmation.aspx");
+        }
+
+        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

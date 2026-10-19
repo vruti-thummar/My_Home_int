@@ -420,7 +420,7 @@
         <tr>
             <td>Payment Method:</td>
             <td>
-                <asp:DropDownList ID="DropDownList1" runat="server">
+                <asp:DropDownList ID="DropDownList1" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
                     <asp:ListItem Value="">--- Select Method ---</asp:ListItem>
                     <asp:ListItem>Cash On Delivery</asp:ListItem>
                     <asp:ListItem>Online Payment</asp:ListItem>
