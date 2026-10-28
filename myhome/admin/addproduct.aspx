@@ -1,13 +1,11 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="addproduct.aspx.cs" Inherits="myhome.addproduct" %>
 
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Manage Products — MyHome Interiors</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Google Fonts: Cormorant Garamond & Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -45,7 +43,6 @@
             min-height: 100vh;
         }
 
-        /* Top Navigation Bar */
         .admin-nav {
             background-color: var(--nav-bg);
             padding: 0 40px;
@@ -72,10 +69,10 @@
             text-decoration: none;
         }
 
-            .brand-logo span {
-                color: #d8a87b;
-                font-style: italic;
-            }
+        .brand-logo span {
+            color: #d8a87b;
+            font-style: italic;
+        }
 
         .badge-admin {
             background-color: rgba(255, 255, 255, 0.08);
@@ -95,27 +92,27 @@
             align-items: center;
         }
 
-            .nav-links a {
-                color: #b8aba0;
-                text-decoration: none;
-                font-size: 13.5px;
-                font-weight: 500;
-                padding: 8px 16px;
-                border-radius: 6px;
-                transition: all 0.2s ease;
-                letter-spacing: 0.2px;
-            }
+        .nav-links a {
+            color: #b8aba0;
+            text-decoration: none;
+            font-size: 13.5px;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            letter-spacing: 0.2px;
+        }
 
-                .nav-links a:hover {
-                    color: #ffffff;
-                    background-color: rgba(255, 255, 255, 0.06);
-                }
+        .nav-links a:hover {
+            color: #ffffff;
+            background-color: rgba(255, 255, 255, 0.06);
+        }
 
-                .nav-links a.active {
-                    color: #f7f3ee;
-                    background-color: rgba(180, 123, 72, 0.25);
-                    border: 1px solid rgba(180, 123, 72, 0.4);
-                }
+        .nav-links a.active {
+            color: #f7f3ee;
+            background-color: rgba(180, 123, 72, 0.25);
+            border: 1px solid rgba(180, 123, 72, 0.4);
+        }
 
         .btn-logout {
             color: #f5b5ab !important;
@@ -123,13 +120,12 @@
             margin-left: 10px;
         }
 
-            .btn-logout:hover {
-                background-color: var(--danger) !important;
-                color: #ffffff !important;
-                border-color: var(--danger) !important;
-            }
+        .btn-logout:hover {
+            background-color: var(--danger) !important;
+            color: #ffffff !important;
+            border-color: var(--danger) !important;
+        }
 
-        /* Container */
         .page-container {
             max-width: 1200px;
             margin: 40px auto;
@@ -140,21 +136,20 @@
             margin-bottom: 28px;
         }
 
-            .content-header h1 {
-                font-family: 'Cormorant Garamond', Georgia, serif;
-                font-size: 34px;
-                font-weight: 600;
-                color: var(--text-heading);
-                letter-spacing: -0.5px;
-            }
+        .content-header h1 {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 34px;
+            font-weight: 600;
+            color: var(--text-heading);
+            letter-spacing: -0.5px;
+        }
 
-            .content-header p {
-                color: var(--text-muted);
-                font-size: 14.5px;
-                margin-top: 4px;
-            }
+        .content-header p {
+            color: var(--text-muted);
+            font-size: 14.5px;
+            margin-top: 4px;
+        }
 
-        /* Form Card */
         .form-card {
             background: var(--bg-card);
             padding: 36px 40px;
@@ -164,14 +159,14 @@
             margin-bottom: 40px;
         }
 
-            .form-card h2 {
-                font-family: 'Cormorant Garamond', Georgia, serif;
-                font-size: 24px;
-                color: var(--text-heading);
-                margin-bottom: 20px;
-                border-bottom: 1px solid var(--border-warm);
-                padding-bottom: 10px;
-            }
+        .form-card h2 {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 24px;
+            color: var(--text-heading);
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border-warm);
+            padding-bottom: 10px;
+        }
 
         .form-grid {
             display: grid;
@@ -185,15 +180,15 @@
             gap: 6px;
         }
 
-            .form-group.full-width {
-                grid-column: 1 / -1;
-            }
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
 
-            .form-group label {
-                font-size: 13.5px;
-                font-weight: 600;
-                color: var(--text-heading);
-            }
+        .form-group label {
+            font-size: 13.5px;
+            font-weight: 600;
+            color: var(--text-heading);
+        }
 
         input[type="text"],
         textarea {
@@ -209,12 +204,12 @@
             transition: all 0.2s ease;
         }
 
-            input[type="text"]:focus,
-            textarea:focus {
-                background-color: #ffffff;
-                border-color: var(--border-focus);
-                box-shadow: 0 0 0 3px rgba(180, 123, 72, 0.15);
-            }
+        input[type="text"]:focus,
+        textarea:focus {
+            background-color: #ffffff;
+            border-color: var(--border-focus);
+            box-shadow: 0 0 0 3px rgba(180, 123, 72, 0.15);
+        }
 
         textarea {
             height: 80px;
@@ -247,12 +242,11 @@
             margin-top: 15px;
         }
 
-            .btn-submit:hover {
-                background: linear-gradient(135deg, #a36e3e 0%, #8b5b2e 100%);
-                transform: translateY(-1px);
-            }
+        .btn-submit:hover {
+            background: linear-gradient(135deg, #a36e3e 0%, #8b5b2e 100%);
+            transform: translateY(-1px);
+        }
 
-        /* Table Card */
         .table-card {
             background: var(--bg-card);
             border-radius: 16px;
@@ -266,11 +260,11 @@
             border-bottom: 1px solid var(--border-warm);
         }
 
-            .table-header h2 {
-                font-family: 'Cormorant Garamond', Georgia, serif;
-                font-size: 24px;
-                color: var(--text-heading);
-            }
+        .table-header h2 {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 24px;
+            color: var(--text-heading);
+        }
 
         .table-wrapper {
             width: 100%;
@@ -284,28 +278,28 @@
             font-size: 14px;
         }
 
-            .modern-grid th {
-                background-color: var(--surface-subtle);
-                color: var(--text-muted);
-                font-weight: 600;
-                font-size: 11.5px;
-                text-transform: uppercase;
-                letter-spacing: 0.8px;
-                padding: 16px 20px;
-                border-bottom: 1px solid var(--border-warm);
-                white-space: nowrap;
-            }
+        .modern-grid th {
+            background-color: var(--surface-subtle);
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 11.5px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border-warm);
+            white-space: nowrap;
+        }
 
-            .modern-grid td {
-                padding: 16px 20px;
-                border-bottom: 1px solid #f2ece4;
-                color: var(--text-body);
-                vertical-align: middle;
-            }
+        .modern-grid td {
+            padding: 16px 20px;
+            border-bottom: 1px solid #f2ece4;
+            color: var(--text-body);
+            vertical-align: middle;
+        }
 
-            .modern-grid tr:hover td {
-                background-color: #faf7f2;
-            }
+        .modern-grid tr:hover td {
+            background-color: #faf7f2;
+        }
 
         .img-thumb {
             width: 48px;
@@ -325,7 +319,6 @@
             font-size: 12px;
         }
 
-        /* Action Buttons */
         .modern-grid a {
             text-decoration: none;
             font-weight: 600;
@@ -337,40 +330,40 @@
             transition: all 0.2s ease;
         }
 
-            .modern-grid a[href*="Edit"] {
-                background-color: #faf5ef;
-                color: var(--primary-accent);
-                border: 1px solid #ebd9c7;
-            }
+        .modern-grid a[href*="Edit"] {
+            background-color: #faf5ef;
+            color: var(--primary-accent);
+            border: 1px solid #ebd9c7;
+        }
 
-                .modern-grid a[href*="Edit"]:hover {
-                    background-color: var(--primary-accent);
-                    color: #ffffff;
-                }
+        .modern-grid a[href*="Edit"]:hover {
+            background-color: var(--primary-accent);
+            color: #ffffff;
+        }
 
-            .modern-grid a[href*="Update"] {
-                background-color: #f1f8f4;
-                color: var(--success-accent);
-                border: 1px solid #c7e3d2;
-            }
+        .modern-grid a[href*="Update"] {
+            background-color: #f1f8f4;
+            color: var(--success-accent);
+            border: 1px solid #c7e3d2;
+        }
 
-                .modern-grid a[href*="Update"]:hover {
-                    background-color: var(--success-accent);
-                    color: #ffffff;
-                }
+        .modern-grid a[href*="Update"]:hover {
+            background-color: var(--success-accent);
+            color: #ffffff;
+        }
 
-            .modern-grid a[href*="Cancel"],
-            .modern-grid a[href*="Delete"] {
-                background-color: #fcf2f0;
-                color: var(--danger);
-                border: 1px solid #f5cfc9;
-            }
+        .modern-grid a[href*="Cancel"],
+        .modern-grid a[href*="Delete"] {
+            background-color: #fcf2f0;
+            color: var(--danger);
+            border: 1px solid #f5cfc9;
+        }
 
-                .modern-grid a[href*="Cancel"]:hover,
-                .modern-grid a[href*="Delete"]:hover {
-                    background-color: var(--danger);
-                    color: #ffffff;
-                }
+        .modern-grid a[href*="Cancel"]:hover,
+        .modern-grid a[href*="Delete"]:hover {
+            background-color: var(--danger);
+            color: #ffffff;
+        }
 
         @media (max-width: 768px) {
             .admin-nav {
@@ -389,7 +382,6 @@
 <body>
     <form id="form1" runat="server">
 
-        <!-- Top Navigation Bar -->
         <header class="admin-nav">
             <div class="brand-wrap">
                 <a href="admindash.aspx" class="brand-logo">MyHome <span>Interiors</span></a>
@@ -411,13 +403,12 @@
                 <p>Add new furniture items or modify/remove existing catalog products</p>
             </div>
 
-            <!-- Form Card: Add Product -->
             <div class="form-card">
                 <h2>Add New Product</h2>
                 <div class="form-grid">
                     <div class="form-group">
                         <label>Product Name</label>
-                        <asp:TextBox ID="txtName" runat="server" placeholder="e.g. Oak Coffee Table"></asp:TextBox>
+                        <asp:TextBox ID="txtName" runat="server" placeholder="e.g. Oak Coffee Table" OnTextChanged="txtName_TextChanged"></asp:TextBox>
                     </div>
 
                     <div class="form-group">
@@ -444,7 +435,6 @@
                 <asp:Button ID="btnAdd" runat="server" Text="Add Product to Catalog" CssClass="btn-submit" OnClick="btnAdd_Click" />
             </div>
 
-            <!-- Table Card: Manage & Edit Products Grid -->
             <div class="table-card">
                 <div class="table-header">
                     <h2>Existing Products List</h2>

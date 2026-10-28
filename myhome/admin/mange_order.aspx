@@ -1,6 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="mange_order.aspx.cs" Inherits="myhome.admin.mange_order" %>
 
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -125,14 +124,12 @@
             border-color: var(--danger) !important;
         }
 
-        /* Container Layout */
         .page-container {
             max-width: 1260px;
             margin: 40px auto;
             padding: 0 24px 60px;
         }
 
-        /* Header Section */
         .content-header {
             margin-bottom: 28px;
         }
@@ -151,7 +148,6 @@
             margin-top: 4px;
         }
 
-        /* Table Card Container */
         .table-card {
             background: var(--bg-card);
             border-radius: 16px;
@@ -243,7 +239,6 @@
             transition: all 0.2s ease;
         }
 
-        /* Edit Button: Amber Border */
         .modern-grid a[href*="Edit"] {
             background-color: #faf5ef;
             color: var(--primary-accent);
@@ -331,7 +326,8 @@
                         GridLines="None"
                         OnRowEditing="GridView1_RowEditing"
                         OnRowCancelingEdit="GridView1_RowCancelingEdit"
-                        OnRowUpdating="GridView1_RowUpdating">
+                        OnRowUpdating="GridView1_RowUpdating" 
+                        OnSelectedIndexChanged="GridView1_SelectedIndexChanged1">
                         
                         <Columns>
                             <asp:TemplateField HeaderText="Order ID">

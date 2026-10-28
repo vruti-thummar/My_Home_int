@@ -1,13 +1,11 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="manage_users.aspx.cs" Inherits="myhome.admin.manage_users" %>
 
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Customer Directory — MyHome Interiors</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Google Fonts: Cormorant Garamond & Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -44,7 +42,6 @@
             min-height: 100vh;
         }
 
-        /* Top Navigation */
         .admin-nav {
             background-color: var(--nav-bg);
             padding: 0 40px;
@@ -128,7 +125,6 @@
             border-color: var(--danger) !important;
         }
 
-        /* Container Layout */
         .page-container {
             max-width: 1240px;
             margin: 40px auto;
@@ -153,7 +149,6 @@
             margin-top: 4px;
         }
 
-        /* Table Card Container */
         .table-card {
             background: var(--bg-card);
             border-radius: 16px;
@@ -187,7 +182,6 @@
             overflow-x: auto;
         }
 
-        /* Aesthetic GridView */
         .modern-grid {
             width: 100%;
             border-collapse: collapse;
@@ -272,7 +266,6 @@
 <body>
     <form id="form1" runat="server">
 
-        <!-- Top Navigation Bar -->
         <header class="admin-nav">
             <div class="brand-wrap">
                 <a href="admindash.aspx" class="brand-logo">MyHome <span>Interiors</span></a>
@@ -288,14 +281,12 @@
             </nav>
         </header>
 
-        <!-- Main Workspace -->
         <main class="page-container">
             <div class="content-header">
                 <h1>Registered Customer Directory</h1>
                 <p>View registered clients, monitor profiles, and manage customer accounts</p>
             </div>
 
-            <!-- Table Card -->
             <div class="table-card">
                 <div class="table-header">
                     <h2>Client Accounts</h2>
@@ -306,38 +297,39 @@
 
                 <div class="table-wrapper">
                     <asp:GridView ID="gvUsers" runat="server" 
-    AutoGenerateColumns="False" 
-    DataKeyNames="Id"
-    CssClass="modern-grid" 
-    GridLines="None"
-    OnRowDeleting="gvUsers_RowDeleting">
-    <Columns>
-        <asp:TemplateField HeaderText="User ID">
-            <ItemTemplate>
-                <span class="user-id-chip">#<%# Eval("Id") %></span>
-            </ItemTemplate>
-        </asp:TemplateField>
+                        AutoGenerateColumns="False" 
+                        DataKeyNames="Id"
+                        CssClass="modern-grid" 
+                        GridLines="None"
+                        OnRowDeleting="gvUsers_RowDeleting" 
+                        OnSelectedIndexChanged="gvUsers_SelectedIndexChanged">
+                        <Columns>
+                            <asp:TemplateField HeaderText="User ID">
+                                <ItemTemplate>
+                                    <span class="user-id-chip">#<%# Eval("Id") %></span>
+                                </ItemTemplate>
+                            </asp:TemplateField>
 
-        <asp:TemplateField HeaderText="Customer Name">
-            <ItemTemplate>
-                <strong style="color: var(--text-heading);"><%# Eval("Firstname") %></strong>
-            </ItemTemplate>
-        </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Customer Name">
+                                <ItemTemplate>
+                                    <strong style="color: var(--text-heading);"><%# Eval("Firstname") %></strong>
+                                </ItemTemplate>
+                            </asp:TemplateField>
 
-        <asp:BoundField DataField="Email" HeaderText="Email Address" />
+                            <asp:BoundField DataField="Email" HeaderText="Email Address" />
 
-        <asp:TemplateField HeaderText="Actions">
-            <ItemTemplate>
-                <asp:LinkButton ID="btnDelete" runat="server" 
-                    CommandName="Delete" 
-                    CssClass="btn-delete"
-                    OnClientClick="return confirm('Are you sure you want to remove this customer account?');">
-                    Remove
-                </asp:LinkButton>
-            </ItemTemplate>
-        </asp:TemplateField>
-    </Columns>
-</asp:GridView>
+                            <asp:TemplateField HeaderText="Actions">
+                                <ItemTemplate>
+                                    <asp:LinkButton ID="btnDelete" runat="server" 
+                                        CommandName="Delete" 
+                                        CssClass="btn-delete"
+                                        OnClientClick="return confirm('Are you sure you want to remove this customer account?');">
+                                        Remove
+                                    </asp:LinkButton>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                        </Columns>
+                    </asp:GridView>
                 </div>
             </div>
         </main>

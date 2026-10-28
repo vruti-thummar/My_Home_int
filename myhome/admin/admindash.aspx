@@ -1,13 +1,11 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="admindash.aspx.cs" Inherits="myhome.admin.admindash" %>
 
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Executive Dashboard — MyHome Interiors</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Google Fonts: Cormorant Garamond & Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -44,7 +42,6 @@
             min-height: 100vh;
         }
 
-        /* Top Navigation Bar */
         .admin-nav {
             background-color: var(--nav-bg);
             padding: 0 40px;
@@ -71,10 +68,10 @@
             text-decoration: none;
         }
 
-            .brand-logo span {
-                color: #d8a87b;
-                font-style: italic;
-            }
+        .brand-logo span {
+            color: #d8a87b;
+            font-style: italic;
+        }
 
         .badge-admin {
             background-color: rgba(255, 255, 255, 0.08);
@@ -94,27 +91,27 @@
             align-items: center;
         }
 
-            .nav-links a {
-                color: #b8aba0;
-                text-decoration: none;
-                font-size: 13.5px;
-                font-weight: 500;
-                padding: 8px 16px;
-                border-radius: 6px;
-                transition: all 0.2s ease;
-                letter-spacing: 0.2px;
-            }
+        .nav-links a {
+            color: #b8aba0;
+            text-decoration: none;
+            font-size: 13.5px;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            letter-spacing: 0.2px;
+        }
 
-                .nav-links a:hover {
-                    color: #ffffff;
-                    background-color: rgba(255, 255, 255, 0.06);
-                }
+        .nav-links a:hover {
+            color: #ffffff;
+            background-color: rgba(255, 255, 255, 0.06);
+        }
 
-                .nav-links a.active {
-                    color: #f7f3ee;
-                    background-color: rgba(180, 123, 72, 0.25);
-                    border: 1px solid rgba(180, 123, 72, 0.4);
-                }
+        .nav-links a.active {
+            color: #f7f3ee;
+            background-color: rgba(180, 123, 72, 0.25);
+            border: 1px solid rgba(180, 123, 72, 0.4);
+        }
 
         .btn-logout {
             color: #f5b5ab !important;
@@ -122,13 +119,12 @@
             margin-left: 10px;
         }
 
-            .btn-logout:hover {
-                background-color: var(--danger) !important;
-                color: #ffffff !important;
-                border-color: var(--danger) !important;
-            }
+        .btn-logout:hover {
+            background-color: var(--danger) !important;
+            color: #ffffff !important;
+            border-color: var(--danger) !important;
+        }
 
-        /* Page Layout */
         .page-container {
             max-width: 1260px;
             margin: 40px auto;
@@ -139,21 +135,20 @@
             margin-bottom: 32px;
         }
 
-            .content-header h1 {
-                font-family: 'Cormorant Garamond', Georgia, serif;
-                font-size: 34px;
-                font-weight: 600;
-                color: var(--text-heading);
-                letter-spacing: -0.4px;
-            }
+        .content-header h1 {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 34px;
+            font-weight: 600;
+            color: var(--text-heading);
+            letter-spacing: -0.4px;
+        }
 
-            .content-header p {
-                color: var(--text-muted);
-                font-size: 14.5px;
-                margin-top: 4px;
-            }
+        .content-header p {
+            color: var(--text-muted);
+            font-size: 14.5px;
+            margin-top: 4px;
+        }
 
-        /* KPI Cards Grid */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -170,10 +165,10 @@
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
-            .stat-card:hover {
-                transform: translateY(-2px);
-                box-shadow: 0 14px 30px rgba(60, 48, 38, 0.07);
-            }
+        .stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 30px rgba(60, 48, 38, 0.07);
+        }
 
         .stat-title {
             font-size: 12px;
@@ -201,7 +196,6 @@
             color: var(--warning-accent);
         }
 
-        /* Recent Orders Section */
         .table-card {
             background: var(--bg-card);
             border-radius: 16px;
@@ -219,26 +213,26 @@
             background-color: #ffffff;
         }
 
-            .table-header h2 {
-                font-family: 'Cormorant Garamond', Georgia, serif;
-                font-size: 22px;
-                font-weight: 600;
-                color: var(--text-heading);
-                letter-spacing: -0.2px;
-            }
+        .table-header h2 {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--text-heading);
+            letter-spacing: -0.2px;
+        }
 
-            .table-header a {
-                color: var(--primary-accent);
-                text-decoration: none;
-                font-size: 13.5px;
-                font-weight: 600;
-                transition: color 0.15s ease;
-            }
+        .table-header a {
+            color: var(--primary-accent);
+            text-decoration: none;
+            font-size: 13.5px;
+            font-weight: 600;
+            transition: color 0.15s ease;
+        }
 
-                .table-header a:hover {
-                    color: var(--primary-hover);
-                    text-decoration: underline;
-                }
+        .table-header a:hover {
+            color: var(--primary-hover);
+            text-decoration: underline;
+        }
 
         .table-wrapper {
             width: 100%;
@@ -252,32 +246,32 @@
             font-size: 14px;
         }
 
-            .modern-grid th {
-                background-color: var(--surface-subtle);
-                color: var(--text-muted);
-                font-weight: 600;
-                font-size: 11.5px;
-                text-transform: uppercase;
-                letter-spacing: 0.8px;
-                padding: 16px 24px;
-                border-bottom: 1px solid var(--border-warm);
-                white-space: nowrap;
-            }
+        .modern-grid th {
+            background-color: var(--surface-subtle);
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 11.5px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            padding: 16px 24px;
+            border-bottom: 1px solid var(--border-warm);
+            white-space: nowrap;
+        }
 
-            .modern-grid td {
-                padding: 18px 24px;
-                border-bottom: 1px solid #f2ece4;
-                color: var(--text-body);
-                vertical-align: middle;
-            }
+        .modern-grid td {
+            padding: 18px 24px;
+            border-bottom: 1px solid #f2ece4;
+            color: var(--text-body);
+            vertical-align: middle;
+        }
 
-            .modern-grid tr:last-child td {
-                border-bottom: none;
-            }
+        .modern-grid tr:last-child td {
+            border-bottom: none;
+        }
 
-            .modern-grid tr:hover td {
-                background-color: #faf7f2;
-            }
+        .modern-grid tr:hover td {
+            background-color: #faf7f2;
+        }
 
         .order-id-chip {
             font-family: 'Plus Jakarta Sans', monospace;
@@ -328,7 +322,6 @@
 <body>
     <form id="form1" runat="server">
 
-        <!-- Top Navigation Bar -->
         <header class="admin-nav">
             <div class="brand-wrap">
                 <a href="admindash.aspx" class="brand-logo">MyHome <span>Interiors</span></a>
@@ -344,14 +337,12 @@
             </nav>
         </header>
 
-        <!-- Main Dashboard Workspace -->
         <main class="page-container">
             <div class="content-header">
                 <h1>Executive Overview</h1>
                 <p>Live storefront statistics, daily sales velocity, and recent transactions</p>
             </div>
 
-            <!-- Stats Overview Cards Grid (6 Live Metrics) -->
             <div class="stats-grid">
                 <div class="stat-card">
                     <div class="stat-title">Total Orders</div>
@@ -396,7 +387,6 @@
                 </div>
             </div>
 
-            <!-- Recent Orders Section -->
             <div class="table-card">
                 <div class="table-header">
                     <h2>Recent 5 Client Orders</h2>

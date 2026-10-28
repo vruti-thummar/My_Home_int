@@ -30,10 +30,7 @@ namespace myhome.admin
         void getcon()
         {
             con = new SqlConnection(s);
-            if (con.State == ConnectionState.Closed)
-            {
-                con.Open();
-            }
+            con.Open();
         }
 
         void fillordergrid()
@@ -116,7 +113,7 @@ namespace myhome.admin
 
         protected void GridView1_RowUpdating1(object sender, GridViewUpdateEventArgs e)
         {
-            int orderId = Convert.ToInt32(GridView1.DataKeys[e.RowIndex].Value);
+            int orderId = Convert.ToInt16(GridView1.DataKeys[e.RowIndex].Value);
 
             GridViewRow row = GridView1.Rows[e.RowIndex];
             DropDownList ddlStatus = (DropDownList)row.FindControl("DropDownList1");
@@ -130,6 +127,11 @@ namespace myhome.admin
 
             GridView1.EditIndex = -1;
             fillordergrid();
+        }
+
+        protected void GridView1_SelectedIndexChanged1(object sender, EventArgs e)
+        {
+
         }
     }
 }

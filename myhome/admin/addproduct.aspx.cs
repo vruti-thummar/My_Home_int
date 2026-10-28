@@ -145,5 +145,10 @@ namespace myhome
         {
 
         }
+
+        protected void txtName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

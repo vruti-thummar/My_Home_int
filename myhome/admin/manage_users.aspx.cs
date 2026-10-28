@@ -33,18 +33,14 @@ namespace myhome.admin
         void getcon()
         {
             con = new SqlConnection(s);
-            if (con.State == ConnectionState.Closed)
-            {
-                con.Open();
-            }
+            con.Open();
         }
 
         void FillUsersGrid()
         {
             getcon();
 
-            // ફક્ત user_tbl નો સાચો ડેટા લોડ કરવો (કોઈ એરર નહીં આવે)
-            string query = "SELECT Id, Firstname, Email FROM user_tbl ORDER BY Id DESC";
+            string query = "SELECT Id, Firstname, Email FROM user1_tbl ORDER BY Id DESC";
             da = new SqlDataAdapter(query, con);
             dt = new DataTable();
             da.Fill(dt);
@@ -62,12 +58,17 @@ namespace myhome.admin
             int userId = Convert.ToInt32(gvUsers.DataKeys[e.RowIndex].Value);
 
             getcon();
-            cmd = new SqlCommand("DELETE FROM user_tbl WHERE Id = @id", con);
+            cmd = new SqlCommand("DELETE FROM user1_tbl WHERE Id = @id", con);
             cmd.Parameters.AddWithValue("@id", userId);
             cmd.ExecuteNonQuery();
             con.Close();
 
             FillUsersGrid();
+        }
+
+        protected void gvUsers_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
