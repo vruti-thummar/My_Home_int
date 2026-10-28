@@ -7,7 +7,6 @@
     <title>Orders Management — MyHome Interiors</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Google Fonts: Cormorant Garamond & Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -43,7 +42,6 @@
             min-height: 100vh;
         }
 
-        /* Top Navigation Bar: Warm Editorial Aesthetic */
         .admin-nav {
             background-color: var(--nav-bg);
             padding: 0 40px;
@@ -167,7 +165,6 @@
             overflow-x: auto;
         }
 
-        /* Modern Aesthetic GridView */
         .modern-grid {
             width: 100%;
             border-collapse: collapse;
@@ -202,7 +199,6 @@
             background-color: #faf7f2;
         }
 
-        /* Order ID pill */
         .order-id-chip {
             font-family: 'Plus Jakarta Sans', monospace;
             font-weight: 600;
@@ -214,14 +210,12 @@
             font-size: 12.5px;
         }
 
-        /* Amount text */
         .amount-text {
             font-weight: 700;
             color: var(--text-heading);
             font-size: 14.5px;
         }
 
-        /* Dropdown Styling */
         .modern-grid select {
             padding: 7px 12px;
             font-size: 13px;
@@ -239,7 +233,6 @@
             box-shadow: 0 0 0 3px rgba(180, 123, 72, 0.15);
         }
 
-        /* Action Buttons (Edit / Update / Cancel) */
         .modern-grid a {
             text-decoration: none;
             font-weight: 600;
@@ -263,7 +256,6 @@
             border-color: var(--primary-accent);
         }
 
-        /* Update Button: Warm Green */
         .modern-grid a[href*="Update"] {
             background-color: #f1f8f4;
             color: var(--success-accent);
@@ -277,7 +269,6 @@
             border-color: var(--success-accent);
         }
 
-        /* Cancel Button: Terra Cotta Muted */
         .modern-grid a[href*="Cancel"] {
             background-color: #fcf2f0;
             color: var(--danger);
@@ -310,7 +301,6 @@
 <body>
     <form id="form1" runat="server">
 
-        <!-- Top Navigation Bar -->
         <header class="admin-nav">
             <div class="brand-wrap">
                 <a href="admindash.aspx" class="brand-logo">MyHome <span>Interiors</span></a>
@@ -326,14 +316,12 @@
             </nav>
         </header>
 
-        <!-- Main Workspace -->
         <main class="page-container">
             <div class="content-header">
                 <h1>Orders Management</h1>
                 <p>Track, manage, and update live client orders & fulfillment</p>
             </div>
 
-            <!-- Table Card -->
             <div class="table-card">
                 <div class="table-wrapper">
                     <asp:GridView ID="GridView1" runat="server" 
