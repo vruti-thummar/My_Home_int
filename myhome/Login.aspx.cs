@@ -47,7 +47,7 @@ namespace myhome
                 getcon();
 
                 cmd = new SqlCommand(
-                    "select id from user_tbl where email='" + email +
+                    "select id from user1_tbl where email='" + email +
                     "' and password='" + password + "'", con);
 
                 int uid = Convert.ToInt32(cmd.ExecuteScalar());

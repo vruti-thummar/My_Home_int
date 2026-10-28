@@ -402,7 +402,7 @@
                 AutoGenerateColumns="False"
                 Width="100%"
                 EmptyDataText="No products found"
-                GridLines="None">
+                GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
 
                 <Columns>
 

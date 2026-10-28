@@ -65,7 +65,7 @@ namespace myhome
         {
             using (SqlConnection con = new SqlConnection(s))
             {
-                using (SqlCommand cmd = new SqlCommand("SELECT Firstname, Email FROM user_tbl WHERE Id = @uid", con))
+                using (SqlCommand cmd = new SqlCommand("SELECT Firstname, Email FROM user1_tbl WHERE Id = @uid", con))
                 {
                     cmd.Parameters.AddWithValue("@uid", Session["uid"]);
 
@@ -143,7 +143,15 @@ namespace myhome
             cmd = new SqlCommand("insert into order_tbl (order_user_id,order_Date,order_total_amount,order_payment_method,order_payment_status) values ('" + uid + "',getdate(),'" + lblSubTotal.Text + "','" + lblPaymentMethod.Text + "','" + orderstatus + "')", con);
             cmd.ExecuteNonQuery();
 
-            Response.Write("<script>alert('Order Placed Successfully');window.location='place.aspx';</script>");
+            SqlCommand cmdCart = new SqlCommand("delete from Cart_tbl where Cart_User_Id = " + Session["uid"], con);
+            cmdCart.ExecuteNonQuery();
+
+            Response.Write("<script>alert('Order Placed Successfully');window.location='order.aspx';</script>");
+        }
+
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
     }

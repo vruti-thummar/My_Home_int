@@ -35,7 +35,7 @@ namespace myhome
                 getcon();
 
                 cmd = new SqlCommand(
-                    "SELECT * FROM user_tbl WHERE Id = @uid", con);
+                    "SELECT * FROM user1_tbl WHERE Id = @uid", con);
 
                 cmd.Parameters.AddWithValue("@uid", Session["uid"]);
 
@@ -119,6 +119,11 @@ namespace myhome
         }        
 
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

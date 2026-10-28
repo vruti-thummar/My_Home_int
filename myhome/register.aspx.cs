@@ -51,7 +51,7 @@ namespace myhome
                 clear();
             }
 
-
+            Response.Redirect("login.aspx");
         }
 
     }

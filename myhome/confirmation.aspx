@@ -392,7 +392,7 @@
             <asp:GridView ID="GridView1" runat="server"
                 AutoGenerateColumns="False"
                 Width="100%"
-                EmptyDataText="No products found">
+                EmptyDataText="No products found" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
 
                 <Columns>
 
