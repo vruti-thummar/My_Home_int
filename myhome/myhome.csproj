@@ -68,7 +68,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="about.aspx" />
-    <Content Include="addproduct.aspx" />
+    <Content Include="admin\addproduct.aspx" />
+    <Content Include="admin\admindash.aspx" />
+    <Content Include="admin\adminlogin.aspx" />
+    <Content Include="admin\manage_users.aspx" />
+    <Content Include="admin\mange_order.aspx" />
     <Content Include="App_Data\Database1.mdf" />
     <Content Include="App_Data\Database1_log.ldf">
       <DependentUpon>Database1.mdf</DependentUpon>
@@ -102,12 +106,40 @@
     <Compile Include="about.aspx.designer.cs">
       <DependentUpon>about.aspx</DependentUpon>
     </Compile>
-    <Compile Include="addproduct.aspx.cs">
+    <Compile Include="admin\addproduct.aspx.cs">
       <DependentUpon>addproduct.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="addproduct.aspx.designer.cs">
+    <Compile Include="admin\addproduct.aspx.designer.cs">
       <DependentUpon>addproduct.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\admindash.aspx.cs">
+      <DependentUpon>admindash.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\admindash.aspx.designer.cs">
+      <DependentUpon>admindash.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\adminlogin.aspx.cs">
+      <DependentUpon>adminlogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\adminlogin.aspx.designer.cs">
+      <DependentUpon>adminlogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\manage_users.aspx.cs">
+      <DependentUpon>manage_users.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\manage_users.aspx.designer.cs">
+      <DependentUpon>manage_users.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\mange_order.aspx.cs">
+      <DependentUpon>mange_order.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\mange_order.aspx.designer.cs">
+      <DependentUpon>mange_order.aspx</DependentUpon>
     </Compile>
     <Compile Include="cart.aspx.cs">
       <DependentUpon>cart.aspx</DependentUpon>

@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="cart.aspx.cs" Inherits="myhome.cart" %>
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head runat="server">
@@ -9,6 +10,162 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Work+Sans:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+
+<style type="text/css">
+    /* Checkout Theme Matching for Cart Page */
+    #GridView1 {
+        border-collapse: collapse !important;
+        border: 1px solid #e8ded2 !important;
+        background-color: #fffaf5 !important;
+        border-radius: 8px !important;
+        overflow: hidden !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04) !important;
+    }
+
+    #GridView1 th {
+        background-color: #634a35 !important;
+        color: #ffffff !important;
+        font-family: 'Work Sans', sans-serif !important;
+        font-size: 13.5px !important;
+        font-weight: 600 !important;
+        padding: 14px 18px !important;
+        border: none !important;
+        letter-spacing: 0.3px !important;
+        text-align: left !important;
+    }
+
+    #GridView1 td {
+        padding: 16px 18px !important;
+        border-bottom: 1px solid #f0e9df !important;
+        color: #3b322a !important;
+        font-size: 14px !important;
+        vertical-align: middle !important;
+        border-left: none !important;
+        border-right: none !important;
+    }
+
+    #GridView1 tr:last-child td {
+        border-bottom: none !important;
+    }
+
+    #GridView1 img {
+        border-radius: 6px !important;
+        border: 1px solid #e8ded2 !important;
+    }
+
+    #GridView1 select {
+        padding: 6px 10px !important;
+        border: 1px solid #d9cbbe !important;
+        border-radius: 6px !important;
+        background: #ffffff !important;
+        font-size: 14px !important;
+        color: #241e19 !important;
+        outline: none !important;
+    }
+
+    /* Action Buttons (Edit / Update / Cancel / Remove) */
+    #GridView1 a {
+        text-decoration: none !important;
+        font-weight: 600 !important;
+        font-size: 12.5px !important;
+        padding: 6px 14px !important;
+        border-radius: 5px !important;
+        display: inline-block !important;
+        transition: all 0.2s ease !important;
+    }
+
+    #GridView1 a[href*="Edit"] {
+        background-color: #f5eee6 !important;
+        color: #7a5433 !important;
+        border: 1px solid #dfcfbe !important;
+    }
+    #GridView1 a[href*="Edit"]:hover {
+        background-color: #7a5433 !important;
+        color: #ffffff !important;
+    }
+
+    #GridView1 a[href*="Update"] {
+        background-color: #eaf5ee !important;
+        color: #2b7042 !important;
+        border: 1px solid #bde3ca !important;
+        margin-right: 4px !important;
+    }
+    #GridView1 a[href*="Update"]:hover {
+        background-color: #2b7042 !important;
+        color: #ffffff !important;
+    }
+
+    #GridView1 a[href*="Cancel"],
+    #GridView1 a[id*="LinkButton1"] {
+        background-color: #fbf0ee !important;
+        color: #a83c2d !important;
+        border: 1px solid #f2cac4 !important;
+    }
+    #GridView1 a[href*="Cancel"]:hover,
+    #GridView1 a[id*="LinkButton1"]:hover {
+        background-color: #a83c2d !important;
+        color: #ffffff !important;
+    }
+
+    /* Checkout Matching Total & Buttons Box */
+    .container.section > div[style*="text-align:right"] {
+        max-width: 420px !important;
+        margin-left: auto !important;
+        margin-top: 28px !important;
+        background: #fffaf5 !important;
+        border: 1px solid #e8ded2 !important;
+        border-radius: 8px !important;
+        padding: 24px 26px !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04) !important;
+        text-align: left !important;
+        font-family: 'Work Sans', sans-serif !important;
+    }
+
+    #lblTotal {
+        font-family: 'Work Sans', sans-serif !important;
+        font-weight: 700 !important;
+        color: #241e19 !important;
+        float: right !important;
+    }
+
+    /* Continue Shopping Button */
+    #Button1 {
+        background: #ffffff !important;
+        color: #5c4d40 !important;
+        border: 1px solid #d9cbbe !important;
+        border-radius: 6px !important;
+        padding: 12px 18px !important;
+        font-size: 13.5px !important;
+        font-weight: 600 !important;
+        cursor: pointer !important;
+        transition: all 0.2s ease !important;
+        margin-top: 18px !important;
+        margin-right: 8px !important;
+    }
+    #Button1:hover {
+        background: #f3ece4 !important;
+        color: #241e19 !important;
+    }
+
+    /* Proceed to Checkout Button */
+    #Button2 {
+        background: linear-gradient(135deg, #7c5c43 0%, #634a35 100%) !important;
+        color: #ffffff !important;
+        border: none !important;
+        border-radius: 6px !important;
+        padding: 12px 20px !important;
+        font-size: 14px !important;
+        font-weight: 600 !important;
+        cursor: pointer !important;
+        transition: all 0.2s ease !important;
+        box-shadow: 0 3px 8px rgba(99, 74, 53, 0.25) !important;
+        margin-top: 18px !important;
+    }
+    #Button2:hover {
+        background: linear-gradient(135deg, #6b4d36 0%, #523c2a 100%) !important;
+        box-shadow: 0 4px 12px rgba(99, 74, 53, 0.35) !important;
+    }
+</style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -130,7 +287,7 @@
       <div>
         <div class="logo" style="margin-bottom:0.75rem"><svg style="width:24px;height:24px"><use href="#icon-swatch"/></svg> MyHome Interiors</div>
         <p>Furniture designed for how people actually live, made from materials that get better with age.</p>
-      </div>
+    </div>
       <div><h4>Shop</h4><ul><li><a href="catalog.aspx">All furniture</a></li><li><a href="catalog.aspx?cat=sofas">Sofas</a></li><li><a href="catalog.aspx?cat=tables">Tables</a></li></ul></div>
       <div><h4>Account</h4><ul><li><a href="login.aspx">Sign in</a></li><li><a href="profile.aspx">My orders</a></li><li><a href="cart.aspx">Cart</a></li></ul></div>
       <div><h4>Company</h4><ul><li><a href="about.aspx">About us</a></li><li><a href="#">Contact</a></li><li><a href="#">Careers</a></li></ul></div>

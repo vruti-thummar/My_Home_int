@@ -46,7 +46,7 @@ namespace myhome
             if (btnRegister.Text == "Create account")
             {
                 getcon();
-                cmd = new SqlCommand("INSERT into user_tbl(Firstname,Lastname,Email,Password)values('" + txtFirstName.Text + "','" + txtLastName.Text + "','" + txtEmail.Text + "','" + txtPassword.Text + "')", con);
+                cmd = new SqlCommand("INSERT into user1_tbl(Firstname,Lastname,Email,Password)values('" + txtFirstName.Text + "','" + txtLastName.Text + "','" + txtEmail.Text + "','" + txtPassword.Text + "')", con);
                 cmd.ExecuteNonQuery();
                 clear();
             }

@@ -33,6 +33,32 @@ namespace myhome
             {
                 fillcartgrid();
                 getcon();
+
+                cmd = new SqlCommand(
+                    "SELECT * FROM user_tbl WHERE Id = @uid", con);
+
+                cmd.Parameters.AddWithValue("@uid", Session["uid"]);
+
+                da = new SqlDataAdapter(cmd);
+                ds = new DataSet();
+                da.Fill(ds);
+
+                if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    lblCustomerName.Text =
+                        ds.Tables[0].Rows[0]["Firstname"].ToString();
+
+                    lblCustomerEmail.Text =
+                        ds.Tables[0].Rows[0]["Email"].ToString();
+
+                }
+                else
+                {
+                    lblCustomerName.Text = "Customer not found";
+                    lblCustomerEmail.Text = "-";
+                }
+
+                con.Close();
             }
         }
         void getcon()
@@ -81,8 +107,16 @@ namespace myhome
         }
         protected void Button1_Click(object sender, EventArgs e)
         {
+            Session["CustMobile"] = TextBox1.Text.Trim();
+            Session["CustAddress"] = TextBox2.Text.Trim();
+
+            if (DropDownList1.SelectedItem != null)
+            {
+                Session["CustPayment"] = DropDownList1.SelectedItem.Text;
+            }
+
             Response.Redirect("confirmation.aspx");
-        }
+        }        
 
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {

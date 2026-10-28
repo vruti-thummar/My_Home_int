@@ -70,7 +70,7 @@
     <div id="login-form">
       <div class="field">
         <label for="txtEmail">Email address</label>
-        <asp:TextBox ID="txtEmail" runat="server" TextMode="Email" placeholder="you@example.com"></asp:TextBox>
+        <asp:TextBox ID="txtEmail" runat="server" TextMode="Email" placeholder="you@example.com" OnTextChanged="txtEmail_TextChanged"></asp:TextBox>
         <div class="field-error">Enter a valid email address.</div>
         <br />
         <asp:Label ID="lblShowEmail" runat="server" Text="HELLOW!" ></asp:Label>

@@ -47,7 +47,7 @@ namespace myhome
                 getcon();
 
                 cmd = new SqlCommand(
-                    "select id from home_tbl where email='" + email +
+                    "select id from user_tbl where email='" + email +
                     "' and password='" + password + "'", con);
 
                 int uid = Convert.ToInt32(cmd.ExecuteScalar());
@@ -77,6 +77,11 @@ namespace myhome
         protected void Btnregister_Click(object sender, EventArgs e)
         {
             Response.Redirect("register.aspx");
+        }
+
+        protected void txtEmail_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

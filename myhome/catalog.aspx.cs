@@ -49,17 +49,17 @@ namespace myhome
         {
             getcon();
 
-            if (Request.QueryString["cat"] != null)
-            {
-                string cat = Request.QueryString["cat"];
+            string cat = Request.QueryString["cat"];
 
-                da = new SqlDataAdapter(
-                    "select * from Product_tbl where Category=" + cat, con);
+            if (!string.IsNullOrEmpty(cat))
+            {
+                cmd = new SqlCommand("select * from Product_tbl where Category_Id = @cat", con);
+                cmd.Parameters.AddWithValue("@cat", cat);
+                da = new SqlDataAdapter(cmd);
             }
             else
             {
-                da = new SqlDataAdapter(
-                    "select * from Product_tbl", con);
+                da = new SqlDataAdapter("select * from Product_tbl", con);
             }
 
             ds = new DataSet();
@@ -142,6 +142,11 @@ namespace myhome
         protected void DataList1_SelectedIndexChanged2(object sender, EventArgs e)
         {
 
+        }
+        protected void Category_Click(object sender, EventArgs e)
+        {
+            LinkButton btn = (LinkButton)sender;
+            Response.Redirect("catalog.aspx?cat=" + btn.CommandArgument);
         }
     }
 }

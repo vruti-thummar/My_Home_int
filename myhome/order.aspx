@@ -171,70 +171,63 @@
                 <span class="step active">Confirmation</span>
             </div>
 
+            <div class="success-card">
+                <center>
+                <svg class="success-icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 64 64"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <circle cx="32" cy="32" r="27"></circle>
+                    <path d="M18 32l9 9 19-20"></path>
+                </svg>
+                </center>
 
+                <h1>Thank You for Your Order!</h1>
 
-    <div class="success-card">
-        <center>
-        <svg class="success-icon"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 64 64"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2.5"
-            stroke-linecap="round"
-            stroke-linejoin="round">
+                <p>
+                    Your order has been placed successfully.
+                    Thank you for shopping with MyHome Interiors.
+                </p>
 
-            <circle cx="32" cy="32" r="27"></circle>
-            <path d="M18 32l9 9 19-20"></path>
-        </svg>
-            </center>
+                <div class="order-info">
+                    <p>
+                        <strong>Order No:</strong>
+                        <asp:Label ID="lblOrderNo" runat="server"></asp:Label>
+                    </p>
 
-        <h1>Thank You for Your Order!</h1>
+                    <p>
+                        <strong>Order Date:</strong>
+                        <asp:Label ID="lblOrderDate" runat="server"></asp:Label>
+                    </p>
 
-        <p>
-            Your order has been placed successfully.
-            Thank you for shopping with MyHome Interiors.
-        </p>
+                    <p>
+                        <strong>Customer Name:</strong>
+                        <asp:Label ID="lblCustomerName" runat="server"></asp:Label>
+                    </p>
 
-        <div class="order-info">
+                    <p>
+                        <strong>Total Amount:</strong>
+                        ₹<asp:Label ID="lblTotalAmount" runat="server"></asp:Label>
+                    </p>
 
-            <p>
-                <strong>Order No:</strong>
-                <asp:Label ID="lblOrderNo" runat="server"></asp:Label>
-            </p>
+                    <p>
+                        <strong>Order Status:</strong>
+                        <asp:Label ID="lblOrderStatus" runat="server"
+                            Text="Pending"></asp:Label>
+                    </p>
+                </div>
 
-            <p>
-                <strong>Order Date:</strong>
-                <asp:Label ID="lblOrderDate" runat="server"></asp:Label>
-            </p>
+                <p>
+                    We appreciate your trust in MyHome Interiors.
+                </p>
 
-            <p>
-                <strong>Customer Name:</strong>
-                <asp:Label ID="lblCustomerName" runat="server"></asp:Label>
-            </p>
-
-            <p>
-                <strong>Total Amount:</strong>
-                ₹<asp:Label ID="lblTotalAmount" runat="server"></asp:Label>
-            </p>
-
-            <p>
-                <strong>Order Status:</strong>
-                <asp:Label ID="lblOrderStatus" runat="server"
-                    Text="Pending"></asp:Label>
-            </p>
-
-        </div>
-
-        <p>
-            We appreciate your trust in MyHome Interiors.
-        </p>
-
-        
-        <asp:Button ID="Button1" CssClass="home-btn" runat="server" Text="Continue Shopping" OnClick="Button1_Click" />
-    </div>
-
-</main>
+                <asp:Button ID="Button1" CssClass="home-btn" runat="server" Text="Continue Shopping" OnClick="Button1_Click" />
+            </div>
+        </main>
 
         <footer class="site-footer">
             <div class="container">
@@ -283,6 +276,6 @@
         <script src="js/products.js"></script>
         <script src="js/checkout.js"></script>
 
-</form>
+    </form>
 </body>
 </html>

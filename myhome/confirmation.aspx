@@ -1,7 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="confirmation.aspx.cs" Inherits="myhome.confirmation" %>
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head runat="server">
@@ -11,6 +9,195 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Work+Sans:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+
+    <style type="text/css">
+        .section {
+            padding-top: 30px;
+            padding-bottom: 60px;
+        }
+
+        h1 {
+            color: #3f352c;
+            font-family: 'Fraunces', serif;
+        }
+
+        h2 {
+            color: #3f352c;
+            font-family: 'Fraunces', serif;
+            font-size: 24px;
+        }
+
+        .step-track {
+            margin-bottom: 30px;
+        }
+
+        table[border="1"]:first-of-type {
+            width: 100% !important;
+            border-collapse: collapse !important;
+            border: 1px solid #e5ded3 !important;
+            background: #fffdf9 !important;
+            color: #3f352c !important;
+            font-family: 'Work Sans', sans-serif !important;
+            border-radius: 8px !important;
+            overflow: hidden !important;
+            margin: 25px 0 !important;
+        }
+
+        table[border="1"]:first-of-type td {
+            padding: 14px 16px !important;
+            border: 1px solid #e5ded3 !important;
+            vertical-align: middle !important;
+            font-size: 14px !important;
+        }
+
+        table[border="1"]:first-of-type tr:first-child td {
+            background: #6b513b !important;
+            color: #ffffff !important;
+            border: 1px solid #6b513b !important;
+        }
+
+        table[border="1"]:first-of-type h3 {
+            margin: 0 !important;
+            color: #ffffff !important;
+            font-family: 'Fraunces', serif !important;
+            font-size: 20px !important;
+            font-weight: 600 !important;
+        }
+
+        table[border="1"]:first-of-type td:first-child {
+            width: 20% !important;
+            font-weight: 500 !important;
+        }
+
+        table[border="1"]:first-of-type td:last-child span {
+            display: inline-block !important;
+            width: 100% !important;
+            min-height: 20px !important;
+            box-sizing: border-box !important;
+            padding: 10px 12px !important;
+            border: 1px solid #d8cbbb !important;
+            border-radius: 6px !important;
+            background: #f7f2e9 !important;
+            color: #3f352c !important;
+            font-family: 'Work Sans', sans-serif !important;
+            font-size: 14px !important;
+        }
+
+        #GridView1 {
+            width: 100% !important;
+            margin: 25px 0 !important;
+            border-collapse: collapse !important;
+            background: #fffdf9 !important;
+            color: #3f352c !important;
+            font-family: 'Work Sans', sans-serif !important;
+            border: 1px solid #e5ded3 !important;
+        }
+
+        #GridView1 th {
+            padding: 15px 12px !important;
+            background: #6b513b !important;
+            color: #ffffff !important;
+            text-align: left !important;
+            font-size: 14px !important;
+            font-weight: 600 !important;
+            border: 1px solid #6b513b !important;
+        }
+
+        #GridView1 td {
+            padding: 13px 12px !important;
+            border: 1px solid #e5ded3 !important;
+            vertical-align: middle !important;
+            font-size: 14px !important;
+        }
+
+        #GridView1 tr:nth-child(even) {
+            background: #f7f2e9 !important;
+        }
+
+        #GridView1 tr:hover {
+            background: #efe7da !important;
+        }
+
+        #GridView1 img {
+            width: 70px !important;
+            height: 70px !important;
+            object-fit: contain !important;
+            border-radius: 6px !important;
+        }
+
+        table[border="1"]:last-of-type {
+            width: 55% !important;
+            margin: 25px 0 25px auto !important;
+            border-collapse: collapse !important;
+            background: #fffdf9 !important;
+            border: 1px solid #e5ded3 !important;
+            color: #3f352c !important;
+            font-family: 'Work Sans', sans-serif !important;
+        }
+
+        table[border="1"]:last-of-type td {
+            padding: 14px 16px !important;
+            border: 1px solid #e5ded3 !important;
+            vertical-align: middle !important;
+            font-size: 14px !important;
+        }
+
+        table[border="1"]:last-of-type td:first-child {
+            font-weight: 500 !important;
+        }
+
+        table[border="1"]:last-of-type tr:last-child {
+            background: #f1e9dc !important;
+        }
+
+        #Button1 {
+            display: inline-block !important;
+            padding: 13px 32px !important;
+            border: none !important;
+            border-radius: 6px !important;
+            background: #6b513b !important;
+            color: #ffffff !important;
+            font-family: 'Work Sans', sans-serif !important;
+            font-size: 15px !important;
+            font-weight: 600 !important;
+            cursor: pointer !important;
+            transition: background 0.2s ease !important;
+        }
+
+        #Button1:hover {
+            background: #4d3929 !important;
+        }
+
+        @media screen and (max-width: 768px) {
+            table[border="1"]:first-of-type,
+            table[border="1"]:first-of-type tbody,
+            table[border="1"]:first-of-type tr,
+            table[border="1"]:first-of-type td {
+                display: block !important;
+                width: 100% !important;
+                box-sizing: border-box !important;
+            }
+
+            table[border="1"]:first-of-type td:first-child {
+                border-bottom: none !important;
+                background: #fdfaf6 !important;
+            }
+
+            #GridView1 {
+                display: block !important;
+                overflow-x: auto !important;
+                white-space: nowrap !important;
+            }
+
+            table[border="1"]:last-of-type {
+                width: 100% !important;
+            }
+
+            #Button1 {
+                width: 100% !important;
+            }
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
